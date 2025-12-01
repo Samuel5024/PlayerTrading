@@ -66,6 +66,16 @@ public class Trade : MonoBehaviour
 
     public void GetCatalog()
     {
+        GetCatalogItemsRequest getCatalogRequest = new GetCatalogItemsRequest
+        {
+            CatalogVersion = "PlayerItems"
+        };
+
+        // send off request to API
+        PlayFabClientAPI.GetCatalogItems(getCatalogRequest,
+            result => catalog = result.Catalog,
+            error => Debug.Log(error.ErrorMessage)
+        );
 
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created

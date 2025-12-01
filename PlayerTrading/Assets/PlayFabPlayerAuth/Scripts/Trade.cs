@@ -37,7 +37,31 @@ public class Trade : MonoBehaviour
     //GetInventory & GetCatalog are called when we want to refresh UI
     public void GetInventory()
     {
+        inventoryText.text ="";
 
+        // request to get the player's inventory
+        GetPlayerCombinedInfoRequest getInvRequest = new GetPlayerCombinedInfoRequest
+        {
+            PlayFabId = LoginRegister.instance.playFabId,
+            InfoRequestParameters = new GetPlayerCombinedInfoRequestParams
+            {
+                GetUserInventory = true
+            }
+        };
+
+        // send off request to API
+        PlayFabClientAPI.GetPlayerCombinedInfo(getInvRequest,
+            result =>
+            {
+                inventory = result.InfoResultPayload.UserInventory;
+
+                foreach(ItemInstance item in inventory)
+                {
+                    inventoryText.text += item.DisplayName + ", ";
+                }
+            },
+            error => Debug.Log(error.ErrorMessage)
+        );
     }
 
     public void GetCatalog()

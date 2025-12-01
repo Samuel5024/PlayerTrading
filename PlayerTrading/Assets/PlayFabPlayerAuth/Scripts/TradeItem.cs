@@ -21,12 +21,17 @@ public class TradeItem : MonoBehaviour
 
     public void OnAddItemButton()
     {
-        value++
+        value++;
         UpdateDisplayText();
     }
 
     public void OnRemoveItemButton()
     {
         if(value > 0)
+        {
+            value--;
+        }
+
+        UpdateDisplayText();
     }
 }

@@ -76,8 +76,9 @@ public class Trade : MonoBehaviour
             result => catalog = result.Catalog,
             error => Debug.Log(error.ErrorMessage)
         );
-
     }
+
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

@@ -34,4 +34,10 @@ public class TradeItem : MonoBehaviour
 
         UpdateDisplayText();
     }
+
+    public void ResetValue()
+    {
+        value = 0;
+        UpdateDisplayText();
+    }
 }

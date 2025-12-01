@@ -75,6 +75,35 @@ public class CreateTrade : MonoBehaviour
 
     void AddTradeToGroup(string tradeId)
     {
+        ExecuteCloudScriptRequest executeRequest = new ExecuteCloudScriptRequest
+        {
+            FunctionName = "AddNewTradeOffer",
+            FunctionParameter = new { tradeID = tradeId }
+        };
 
+        PlayFabClientAPI.ExecuteCloudScript(executeRequest,
+            result =>
+            {
+                Debug.Log("Trade offer created.");
+
+                if(Trade.instance.onRefreshUI != null)
+                {
+                    Trade.instance.onRefreshUI.Invoke();
+                }
+            },
+            error => Debug.Log(error.ErrorMessage)
+        );
+    }
+
+    public void ResetItemValues()
+    {
+        foreach(TradeItem item in offeringItems)
+        {
+            item.ResetValue();
+        }
+        foreach(TradeItem item in requestingItems)
+        {
+            item.ResetValue();
+        }
     }
 }

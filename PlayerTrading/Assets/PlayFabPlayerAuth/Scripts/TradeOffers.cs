@@ -40,7 +40,7 @@ public class TradeOffers : MonoBehaviour
             result => 
             {
                 string rawData = result.FunctionResult.ToString();
-                tradeOfferInfo = JSONUtility.From.Json<TradeOfferInfo>(rawData);
+                tradeOfferInfo = JsonUtility.FromJson<TradeOfferInfo>(rawData);
                 GetTradeInfo();
             },
             error => Debug.Log(error.ErrorMessage)

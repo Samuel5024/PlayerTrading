@@ -1,16 +1,23 @@
 using UnityEngine;
+using System.Collections.Generic;
+using PlayFab;
+using PlayFab.ClientModels;
+using UnityEngine.UI;
+using TMPro;
 
 public class ViewTradeWindow : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public TextMeshProUGUI headerText;
+    public TextMeshProUGUI offeredItemsText;
+    public TextMeshProUGUI requestItemsText;
+
+    private TradeOfferInfo curTradeOffer;
+
+    // instance
+    public static ViewTradeWindow instance;
+    void Awake()
     {
-        
+        instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

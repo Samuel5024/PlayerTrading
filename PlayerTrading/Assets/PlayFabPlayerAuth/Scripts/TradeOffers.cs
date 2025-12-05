@@ -92,7 +92,7 @@ public class TradeOffers : MonoBehaviour
     {
         // fill in the UpdateTradeOffersUI function
 
-        for(int x = 00; x < tradeOfferButtons.Length; ++x)
+        for(int x = 0; x < tradeOfferButtons.Length; ++x)
         {
             tradeOfferButtons[x].gameObject.SetActive(x < tradeOffers.Count);
             if(!tradeOfferButtons[x].gameObject.activeInHierarchy)
@@ -110,6 +110,6 @@ public class TradeOffers : MonoBehaviour
 
     public void OnTradeOfferButton(int tradeIndex)
     {
-
+            
     }
 }

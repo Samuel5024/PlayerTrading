@@ -16,6 +16,8 @@ public class Trade : MonoBehaviour
     [HideInInspector]
     public List<CatalogItem> catalog;
 
+    public TextMeshProUGUI displayText;
+
     // OnRefreshUI will be called when we want to update the updated info
     public UnityEvent onRefreshUI;
 
@@ -76,5 +78,26 @@ public class Trade : MonoBehaviour
             result => catalog = result.Catalog,
             error => Debug.Log(error.ErrorMessage)
         );
+    }
+
+    public void SetDisplayText(string text, bool isError)
+    {
+        displayText.text = text;
+
+        if(isError)
+        {
+            displayText.color = Color.red;
+        }
+        else
+        {
+            displayText.color = Color.green;
+        }
+
+        Invoke("HideDisplayText", 2.0f);
+    }
+
+    void HideDisplayText()
+    {
+        displayText.text = "";
     }
 }

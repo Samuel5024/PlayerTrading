@@ -1,5 +1,4 @@
 using UnityEngine;
-using System;
 using System.Collections.Generic;
 using PlayFab;
 using PlayFab.ClientModels;
@@ -100,7 +99,22 @@ public class ViewTradeWindow : MonoBehaviour
 
     void RemoveTradeOwnerFromGroup(string offeringPlayerId)
     {
+        ExecuteCloudScriptRequest executeRequest = new ExecuteCloudScriptRequest
+        {
+            FunctionName = "AcceptTrade",
+            FunctionParameter = new { tradeOwnerId = offeringPlayerId}
+        };
 
+        PlayFabClientAPI.ExecuteCloudScript(executeRequest,
+            result =>
+            {
+                if(Trade.instance.onRefreshUI != null)
+                {
+                    Trade.instance.onRefreshUI.Invoke();
+                }
+            },
+            error => Debug.Log(error.ErrorMessage)
+        );
     }
 
     public void ResetUI()

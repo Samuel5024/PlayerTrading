@@ -470,7 +470,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 123852151}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &123852151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4935,9 +4947,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d587a507e0137d44f9f499d6324c2194, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  headerText: {fileID: 0}
-  offeredItemsText: {fileID: 0}
-  requestItemsText: {fileID: 0}
+  headerText: {fileID: 497624067}
+  offeredItemsText: {fileID: 350919071}
+  requestItemsText: {fileID: 975606275}
 --- !u!114 &1637161755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5012,6 +5024,18 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1637161755}
+        m_TargetAssemblyTypeName: TradeOffers, Assembly-CSharp
+        m_MethodName: UpdateTradeOffers
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1637161753}
         m_TargetAssemblyTypeName: TradeOffers, Assembly-CSharp
         m_MethodName: UpdateTradeOffers
         m_Mode: 1

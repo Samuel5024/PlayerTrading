@@ -110,6 +110,6 @@ public class TradeOffers : MonoBehaviour
 
     public void OnTradeOfferButton(int tradeIndex)
     {
-            
+        ViewTradeWindow.instance.SetTradeWindow(tradeIndex);
     }
 }

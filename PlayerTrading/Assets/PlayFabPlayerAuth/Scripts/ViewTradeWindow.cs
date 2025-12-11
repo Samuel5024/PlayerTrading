@@ -42,7 +42,7 @@ public class ViewTradeWindow : MonoBehaviour
         offeredItemsText.text = "";
         foreach(KeyValuePair<string, int> item in offeredItemsCount)
         {
-            string itemName = Trade.instance.catalog.Find(y => y.itemId == item.Key).DisplayName;
+            string itemName = Trade.instance.catalog.Find(y => y.ItemId == item.Key).DisplayName;
             offeredItemsText.text = string.Format("x{0} {1}\n", item.Value, itemName);
         }
 
@@ -60,7 +60,7 @@ public class ViewTradeWindow : MonoBehaviour
 
         foreach(KeyValuePair<string, int> item in requestingItemsCount)
         {
-            string itemName = Trade.instance.catalog.Find(y => y.itemId == item).DisplayName;
+            string itemName = Trade.instance.catalog.Find(y => y.ItemId == item.Key).DisplayName;
             requestedItemsText.text += string.Format("x{0} {1}\n", item.Value, itemName);
         } 
     }
